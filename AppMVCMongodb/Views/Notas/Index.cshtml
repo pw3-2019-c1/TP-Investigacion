@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AppMVCMongodb.Models.Nota>
+@{ ViewBag.Title = "Todas las notas";}
+<h2>@ViewBag.Title</h2>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Notas</th>
+        <th>Eliminar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="Notas/Editar/@item.Id">
+                    @item.Id
+                </a>
+            </td>
+            <td>
+                <a href="Notas/Editar/@item.Id">
+                    @item.Titulo
+                </a>
+            </td>
+            <td>
+                <a href="Notas/Editar/@item.Id">
+                    @item.Contenido
+                </a>
+            </td>
+            <td>
+                <a href="Notas/Eliminar/@item.Id">Eliminar Nota</a>
+            </td>
+        </tr>
+    }
+</table>
