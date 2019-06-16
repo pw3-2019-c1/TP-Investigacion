@@ -30,7 +30,7 @@ namespace AppMVCMongodb.Controllers
         {
             MongoDbContext dbContext = new MongoDbContext();
             dbContext.Notas.ReplaceOne(m => m.Id == entity.Id, entity);
-            return View(entity);
+            return RedirectToAction("Index", "Notas");
         }
         [HttpGet]
         public ActionResult Agregar()
