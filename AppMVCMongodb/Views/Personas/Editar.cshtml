@@ -53,9 +53,10 @@
                 <span asp-validation-for="Direccion.Localidad" class="text-danger"></span>
             </div>
         </div>
-        <input asp-for="Direccion.Localidad" type="hidden" name="notas" id="notas" value="@Model.Notas" />
         <div>
-            <h3> Notas: </h3>
+            <h3> Notas: <a class="btn btn-default" href="/Notas/Agregar/@Model.Id">
+    +
+</a></h3>
         </div>
         <div class="form-group">
             <table class="table">
@@ -66,46 +67,42 @@
                     <th>Acceso</th>
                     <th>Eliminar</th>
                 </tr>
-                @foreach (var item in Model.Notas)
+                @foreach (var item in @ViewBag.ListaNotas)
                 {
                     <tr>
                         <td>
-                            <a href="Notas/Editar/@item.Id">
+                            <a href="/Notas/Editar/@item.Id">
                                 @item.Id
                             </a>
                         </td>
                         <td>
-                            <a href="Notas/Editar/@item.Id">
+                            <a href="/Notas/Editar/@item.Id">
                                 @item.Titulo
                             </a>
                         </td>
                         <td>
-                            <a href="Notas/Editar/@item.Id">
+                            <a href="/Notas/Editar/@item.Id">
                                 @item.Contenido
                             </a>
                         </td>
                         <td>
-                            <a href="Notas/Editar/@item.Id">
+                            <a href="/Notas/Editar/@item.Id">
                                 @item.Acceso
                             </a>
                         </td>
                         <td>
-                            <a href="Notas/Eliminar/@item.Id">Eliminar Nota</a>
+                            <a href="/Notas/Eliminar/@item.Id">Eliminar Nota</a>
                         </td>
                     </tr>
                 }
             </table>
+
+            
         </div>
-
-
-
-
-
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Actualizar" class="btn btn-default" />
+                <input type="submit" value="Actualizar Persona" class="btn btn-default" />
             </div>
         </div>
     </div>

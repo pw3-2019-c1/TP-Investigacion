@@ -1,0 +1,35 @@
+En la database PersonasDB crear una Collection llamada Personas
+En la collection Personas crear el siguiente documento:
+# Los _ids son del tipo ObjectId.
+
+{
+	"_id":"5d0703c41662982224d4838e",
+	"Dni":"36567978",
+	"Nombre":"Tomás",
+	"Apellido":"Gómez",
+	"Direccion":{
+		"Calle":"Barcala",
+		"Numero":1168,
+		"Localidad":"Ituzaingo"
+	}
+}
+
+
+En la collection Notas crear los siguientes documentos:
+
+{
+	"_id":"5d07043d1662982224d48391",
+	"Titulo":"Nota 1",
+	"Contenido":"Esta es la primer nota.",
+	"Acceso":3,
+	"idPersona":"5d0703c41662982224d4838e"
+}
+
+{
+	"_id":"5d0704731662982224d48392",
+	"Titulo":"Nota 2",
+	"Contenido":"Esta es la segunda nota de prueba.",
+	"Acceso":5,
+	"idPersona":"5d0703c41662982224d4838e"
+}
+

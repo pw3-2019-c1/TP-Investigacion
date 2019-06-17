@@ -17,7 +17,6 @@ namespace AppMVCMongodb.Controllers
             List<Nota> listaNotas = dbContext.Notas.Find(m => true).ToList();
             return View(listaNotas);
         }
-        /*
         [HttpGet]
         public IActionResult Editar(string id)
         {
@@ -30,11 +29,13 @@ namespace AppMVCMongodb.Controllers
         {
             MongoDbContext dbContext = new MongoDbContext();
             dbContext.Notas.ReplaceOne(m => m.Id == entity.Id, entity);
-            return RedirectToAction("Index", "Notas");
+            return RedirectToAction("Editar/" + entity.IdPersona, "Personas");
         }
+
         [HttpGet]
-        public ActionResult Agregar()
+        public ActionResult Agregar(string idPersona)
         {
+            ViewBag.idPersona = idPersona;
             return View();
         }
         [HttpPost]
@@ -42,14 +43,14 @@ namespace AppMVCMongodb.Controllers
         {
             MongoDbContext dbContext = new MongoDbContext();
             dbContext.Notas.InsertOne(entity);
-            return RedirectToAction("Index", "Notas");
+            return RedirectToAction("Editar/" + entity.IdPersona, "Personas");
         }
         [HttpGet]
         public ActionResult Eliminar(string id)
         {
             MongoDbContext dbContext = new MongoDbContext();
             dbContext.Notas.DeleteOne(m => m.Id == id);
-            return RedirectToAction("Index", "Notas");
-        }*/
+            return View();
+        }
     }
 }

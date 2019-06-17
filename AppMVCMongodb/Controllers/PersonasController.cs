@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using AppMVCMongodb.Models;
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace AppMVCMongodb.Controllers
 {
@@ -23,6 +24,9 @@ namespace AppMVCMongodb.Controllers
         {
             MongoDbContext dbContext = new MongoDbContext();
             var entity = dbContext.Personas.Find(m => m.Id == id).FirstOrDefault();
+             // Obtiene los documentos Notas que tengan el campo idPersona igual al Id de la persona a editar.
+            List<Nota> listaNotas = dbContext.Notas.Find(m => m.IdPersona == id).ToList();
+            ViewBag.listaNotas = listaNotas;
             return View(entity);
         }
         [HttpPost]

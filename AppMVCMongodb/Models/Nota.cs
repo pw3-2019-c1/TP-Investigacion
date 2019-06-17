@@ -12,12 +12,15 @@ namespace AppMVCMongodb.Models
     public class Nota
     {
         [BsonId]
-        public int Id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
         [Required]
         public string Titulo { get; set; }
         [Required]
         public string Contenido { get; set; }
         [BsonIgnoreIfNull]
         public int Acceso { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string IdPersona { get; set; }
     }
 }

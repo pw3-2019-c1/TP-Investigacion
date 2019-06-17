@@ -22,7 +22,5 @@ namespace AppMVCMongodb.Models
         public string Apellido { get; set; }
         [BsonIgnoreIfNull]
         public Direccion Direccion { get; set; }
-        [BsonIgnoreIfNull]
-        public List<Nota> Notas { get; set; }
     }
 }
