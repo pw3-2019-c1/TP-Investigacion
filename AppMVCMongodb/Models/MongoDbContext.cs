@@ -8,8 +8,11 @@ namespace AppMVCMongodb.Models
 {
     public class MongoDbContext
     {
+        // ConnectionString - Obtiene la cadena de conexión
         public static string ConnectionString { get; set; }
+        // Databasename - Obtiene el nombre de la colección
         public static string DatabaseName { get; set; }
+        // IsSSL - Indica si SSL
         public static bool IsSSL { get; set; }
         private IMongoDatabase _database { get; }
         public MongoDbContext()
