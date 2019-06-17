@@ -4,7 +4,7 @@
 <h2>@ViewBag.Title</h2>
 <form asp-controller="Notas" asp-action="Agregar" method="post" class="form-horizontal" role="form">
     <div class="form-horizontal">
-        <div asp-validation-summary="All" class="text-danger"></div>
+        <input id="Persona" name="Persona" type="hidden" value="@ViewBag.Persona">
         <div class="form-group">
             <label asp-for="Titulo" class="col-md-2 control-label"></label>
             <div class="col-md-10">

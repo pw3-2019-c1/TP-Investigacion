@@ -1,0 +1,57 @@
+﻿
+@model AppMVCMongodb.Models.Persona
+@{ ViewBag.Title = "Agregar persona";}
+<h2>@ViewBag.Title</h2>
+<form asp-controller="Personas" asp-action="Agregar" method="post" class="form-horizontal" role="form">
+    <div class="form-horizontal">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Dni" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Dni" class="form-control" />
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Nombre" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Apellido" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Direccion.Calle" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Direccion.Calle" class="form-control" />
+                <span asp-validation-for="Direccion.Calle" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Direccion.Numero" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Direccion.Numero" class="form-control" />
+                <span asp-validation-for="Direccion.Numero" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Direccion.Localidad" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Direccion.Localidad" class="form-control" />
+                <span asp-validation-for="Direccion.Localidad" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
