@@ -20,7 +20,7 @@ namespace AppMVCMongodb.Models
         public string Contenido { get; set; }
         [BsonIgnoreIfNull]
         public int Acceso { get; set; }
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string IdPersona { get; set; }
+        [BsonIgnoreIfNull]
+        public string Persona { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using AppMVCMongodb.Models;
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace AppMVCMongodb.Controllers
 {
@@ -29,28 +30,29 @@ namespace AppMVCMongodb.Controllers
         {
             MongoDbContext dbContext = new MongoDbContext();
             dbContext.Notas.ReplaceOne(m => m.Id == entity.Id, entity);
-            return RedirectToAction("Editar/" + entity.IdPersona, "Personas");
+            return RedirectToAction("Editar/" + entity.Persona, "Personas");
         }
 
         [HttpGet]
-        public ActionResult Agregar(string idPersona)
+        public IActionResult Agregar(string id)
         {
-            ViewBag.idPersona = idPersona;
+            ViewBag.Persona = id;
             return View();
         }
         [HttpPost]
         public ActionResult Agregar(Nota entity)
         {
             MongoDbContext dbContext = new MongoDbContext();
+            entity.Id = null;
             dbContext.Notas.InsertOne(entity);
-            return RedirectToAction("Editar/" + entity.IdPersona, "Personas");
+            return RedirectToAction("Editar/" + entity.Persona, "Personas");
         }
         [HttpGet]
         public ActionResult Eliminar(string id)
         {
             MongoDbContext dbContext = new MongoDbContext();
             dbContext.Notas.DeleteOne(m => m.Id == id);
-            return View();
+            return RedirectToAction("Index","Personas");
         }
     }
 }
