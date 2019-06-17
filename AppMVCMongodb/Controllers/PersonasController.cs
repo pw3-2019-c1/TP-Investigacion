@@ -9,28 +9,28 @@ using MongoDB.Driver;
 
 namespace AppMVCMongodb.Controllers
 {
-    public class NotasController : Controller
+    public class PersonasController : Controller
     {
         public ActionResult Index()
         {
             MongoDbContext dbContext = new MongoDbContext();
-            List<Nota> listaNotas = dbContext.Notas.Find(m => true).ToList();
-            return View(listaNotas);
+            List<Persona> listaPersonas = dbContext.Personas.Find(m => true).ToList();
+            return View(listaPersonas);
         }
-        /*
+
         [HttpGet]
         public IActionResult Editar(string id)
         {
             MongoDbContext dbContext = new MongoDbContext();
-            var entity = dbContext.Notas.Find(m => m.Id == id).FirstOrDefault();
+            var entity = dbContext.Personas.Find(m => m.Id == id).FirstOrDefault();
             return View(entity);
         }
         [HttpPost]
-        public ActionResult Editar(Nota entity)
+        public ActionResult Editar(Persona entity)
         {
             MongoDbContext dbContext = new MongoDbContext();
-            dbContext.Notas.ReplaceOne(m => m.Id == entity.Id, entity);
-            return RedirectToAction("Index", "Notas");
+            dbContext.Personas.ReplaceOne(m => m.Id == entity.Id, entity);
+            return RedirectToAction("Index", "Personas");
         }
         [HttpGet]
         public ActionResult Agregar()
@@ -38,18 +38,18 @@ namespace AppMVCMongodb.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Agregar(Nota entity)
+        public ActionResult Agregar(Persona entity)
         {
             MongoDbContext dbContext = new MongoDbContext();
-            dbContext.Notas.InsertOne(entity);
-            return RedirectToAction("Index", "Notas");
+            dbContext.Personas.InsertOne(entity);
+            return RedirectToAction("Index", "Personas");
         }
         [HttpGet]
         public ActionResult Eliminar(string id)
         {
             MongoDbContext dbContext = new MongoDbContext();
-            dbContext.Notas.DeleteOne(m => m.Id == id);
-            return RedirectToAction("Index", "Notas");
-        }*/
+            dbContext.Personas.DeleteOne(m => m.Id == id);
+            return RedirectToAction("Index", "Personas");
+        }
     }
 }

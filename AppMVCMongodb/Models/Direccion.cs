@@ -9,15 +9,13 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace AppMVCMongodb.Models
 {
     [BsonIgnoreExtraElements()] // Para que no rompa si algun docuento tiene otros campos adicionales
-    public class Nota
+    public class Direccion
     {
-        [BsonId]
-        public int Id { get; set; }
-        [Required]
-        public string Titulo { get; set; }
-        [Required]
-        public string Contenido { get; set; }
         [BsonIgnoreIfNull]
-        public int Acceso { get; set; }
+        public string Calle { get; set; }
+        [BsonIgnoreIfNull]
+        public int Numero { get; set; }
+        [BsonIgnoreIfNull]
+        public string Localidad { get; set; }
     }
 }

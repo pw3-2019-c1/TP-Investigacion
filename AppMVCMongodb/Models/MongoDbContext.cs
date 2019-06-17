@@ -29,6 +29,13 @@ namespace AppMVCMongodb.Models
                 throw new Exception("No se pudo conectar con el servidor.", ex);
             }
         }
+        public IMongoCollection<Persona> Personas
+        {
+            get
+            {
+                return _database.GetCollection<Persona>("Personas");
+            }
+        }
         public IMongoCollection<Nota> Notas
         {
             get
